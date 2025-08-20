@@ -1,40 +1,44 @@
+document.getElementById("deposit-button").addEventListener("click", function () {
+    const inputField = document.getElementById("input-deposit");
+    const inputTaxt = inputField.value
+
+    const inputAmount = parseInt(inputTaxt);
 
 
-document.getElementById('deposit-button').addEventListener('click', function(){
-    const inputAmount = parseInt(document.getElementById('input-deposit').value);
-
-    if (inputAmount < 1){
-        return alert('Minimum Value 1')
+    if (inputField.value == "") {
+        return alert("valo hou")
     }
 
-    const previousAmount = parseInt(document.getElementById('total-deposit').innerText);
-    const totalDeposit = inputAmount + previousAmount ;
-    document.getElementById('total-deposit').innerHTML = totalDeposit; 
 
-    //Clear
-    document.getElementById('input-deposit').value = '';
-
-    let totalBalance = inputAmount + previousAmount;
-    document.getElementById('total-balance').innerHTML = totalBalance; 
-})
-
-
-
-document.getElementById('withdraw-button').addEventListener('click', function(){
-    const inputAmount = parseInt(document.getElementById('input-withdraw').value);
-
-    if (inputAmount < 1){
-        return alert('Minimum Value 1 ')
+    if (inputAmount < 1) {
+        return alert("minimum value is 1")
     }
 
-    const previousAmount = parseInt(document.getElementById('total-withdraw').innerText);
-    const totalWithdraw = previousAmount + inputAmount;
-    document.getElementById('total-withdraw').innerHTML = totalWithdraw; 
 
-    //Clear
-    document.getElementById('input-withdraw').value = '';
+    const totalDepositinput = document.getElementById("total-deposit");
+    const totalDepositText = totalDepositinput.innerText
+    const Deposit = parseInt(totalDepositText);
+    const newDeposit = Deposit + inputAmount;
+    totalDepositinput.innerText = newDeposit;
+    //total-balance
 
-    const previousBalance = document.getElementById('total-balance').innerText;
-    const totalBalance = previousBalance - inputAmount;
-    document.getElementById('total-balance').innerHTML = totalBalance; 
+
+
+    const balanceField = document.getElementById("balance-input");
+    
+    const balanceText = balanceField.innerText;
+    const previousBalance = parseInt(balanceText);
+
+    const totalBalance = previousBalance + inputAmount;
+    balanceField.innerText = totalBalance;
+
+    //clear
+
+    inputField.value = " "
+
+
+
+
+
+
 })
