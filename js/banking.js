@@ -37,8 +37,52 @@ document.getElementById("deposit-button").addEventListener("click", function () 
     inputField.value = " "
 
 
+//out money
+
+document.getElementById("withdraw-button").addEventListener("click", function () {
+    const inputField = document.getElementById("input-withdraw");
+    const inputTaxt = inputField.value
+
+    const inputAmount = parseInt(inputTaxt);
+
+
+    if (inputField.value == "") {
+        return alert("valo hou")
+    }
+
+
+    if (inputAmount < 1) {
+        return alert("minimum value is 1")
+    }
+
+
+    const totalwithdrawinput = document.getElementById("total-withdraw");
+    const totalwithdrawText = totalwithdrawinput.innerText
+    const withdraw = parseInt(totalwithdrawText);
+    const newwithdraw = withdraw + inputAmount;
+
+    totalwithdrawinput.innerText = newwithdraw;
+    //total-balance
 
 
 
+    const balanceField = document.getElementById("balance-input");
+    
+    const balanceText = balanceField.innerText;
+    const previousBalance = parseInt(balanceText);
+
+    const totalBalance = previousBalance - inputAmount;
+    balanceField.innerText = totalBalance;
+
+    //clear
+
+    inputField.value = " "
+
+
+
+
+
+
+})
 
 })
